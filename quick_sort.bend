@@ -3,16 +3,6 @@ type Arr:
   Single {a}
   Concat {fst, snd}
 
-# Sums all elements in a concatenation tree
-def sum(tree):
-  match tree:
-    case Arr/Empty:
-      return 0
-    case Arr/Single:
-      return tree.a
-    case Arr/Concat:
-      return sum(tree.fst) + sum(tree.snd)
-     
 # QuickSort
 def qsort(p, s, xs):
   match xs:
@@ -45,25 +35,38 @@ def place(p, s, b, x, xs, min, max):
 
 # Generates a random list
 def rnd(n):
-  if n == 0:
-    return List/Nil
-  else:
-    return List/Cons(random(10000 - n), rnd(n - 1))
+  switch n == 0:
+    case 0:
+      return List/Cons(random(10000 - n), rnd(n - 1))
+    case _:
+      return List/Nil
 
+# Sums all elements in a concatenation tree
+def sum(tree):
+  match tree:
+    case Arr/Empty:
+      return 0
+    case Arr/Single:
+      return tree.a
+    case Arr/Concat:
+      return sum(tree.fst) + sum(tree.snd)
+     
 # Generates a random number
 def random(n):
   switch n == 0:
     case 0:
-      return 0
-    case _:
       return (random(n - 1) * 16 + 101387) % 429453
+    case _:
+      return 0
 
 # The initial pivot
-pivot = (2 ** 23)
+# pivot = (2 ** 10)
+pivot = 314
+
 
 def main():
-  return (qsort(pivot, pivot, rnd(1000)))
-  # return (rnd(1000))
+  return (qsort(pivot, pivot, rnd(10)))
+  # return (rnd(100))
 
 # sum qsort 1000 pivo 214748  = 417255
 # sum rnd   1000              = 15651375
