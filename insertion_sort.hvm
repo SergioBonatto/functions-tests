@@ -1,0 +1,54 @@
+@Insert_aux = ($([=0] ?((@Insert_aux__C0 @Insert_aux__C1) (a (b (c d))))) (c (b (a d))))
+
+@Insert_aux__C0 = (c (a (b e)))
+  & @List/Cons ~ (a (d e))
+  & @Insertion_sort.insert ~ (b (c d))
+
+@Insert_aux__C1 = (* (c (b (a e))))
+  & @List/Cons ~ (a (d e))
+  & @List/Cons ~ (b (c d))
+
+@Insertion_sort = ((@Insertion_sort__C0 (@List/Nil a)) a)
+
+@Insertion_sort.insert = (a ((@Insertion_sort.insert__C1 (@Insertion_sort.insert__C0 (a b))) b))
+
+@Insertion_sort.insert__C0 = (a b)
+  & @List/Cons ~ (a (@List/Nil b))
+
+@Insertion_sort.insert__C1 = ({a d} (e ({$(:[>] $(a b)) c} f)))
+  & @Insert_aux ~ (b (c (d (e f))))
+
+@Insertion_sort__C0 = (a (b d))
+  & @Insertion_sort.insert ~ (a (c d))
+  & @Insertion_sort ~ (b c)
+
+@List/Cons = (a (b ((a (b c)) (* c))))
+
+@List/Nil = (* (a a))
+
+@Random = ({$([=0] ?((@Random__C0 (* (* 0))) (a b))) a} b)
+
+@Random__C0 = ($([-1] a) b)
+  & @Random ~ (a $([*16] $([+101387] $([%429453] b))))
+
+@Rnd = ({$([=0] ?((@Rnd__C0 (* (* @List/Nil))) (a b))) a} b)
+
+@Rnd__C0 = ({a $([-1] d)} f)
+  & @List/Cons ~ (c (e f))
+  & @Random ~ (b c)
+  & $(a b) ~ [-10000]
+  & @Rnd ~ (d e)
+
+@Sum = ((@Sum__C0 (0 a)) a)
+
+@Sum__C0 = ($(:[+] $(b c)) (a c))
+  & @Sum ~ (a b)
+
+@main = a
+  & @Sum ~ (@main__C1 a)
+
+@main__C0 = a
+  & @Rnd ~ (10000 a)
+
+@main__C1 = a
+  & @Insertion_sort ~ (@main__C0 a)

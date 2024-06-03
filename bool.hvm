@@ -1,0 +1,14 @@
+@false = (* (a a))
+
+@main = a
+  & @neg ~ (3 (@true a))
+
+@neg = (?(((a a) @neg__C0) b) b)
+
+@neg__C0 = (a (b d))
+  & @neg ~ (a (c d))
+  & @not ~ (b c)
+
+@not = ((@false (@true a)) a)
+
+@true = (a (* a))

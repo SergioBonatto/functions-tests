@@ -1,0 +1,69 @@
+@Combine_k_elements = ((@Combine_k_elements__C3 (@Combine_k_elements__C2 a)) a)
+
+@Combine_k_elements__C0 = (* (* a))
+  & @List.cons ~ (@List.nil (@List.nil a))
+
+@Combine_k_elements__C1 = ({$([+1] i) $([+1] $([-1] b))} (d ({h a} k)))
+  & @Concat ~ (g (j k))
+  & @Map ~ (c (e g))
+  & @Combine_k_elements ~ (a (b c))
+  & @Combine_k_elements ~ (h (i j))
+  & @List.cons ~ (d e)
+
+@Combine_k_elements__C2 = (?((a (* @List.nil)) b) b)
+  & @List.cons ~ (@List.nil (@List.nil a))
+
+@Combine_k_elements__C3 = (a (b (?((@Combine_k_elements__C0 @Combine_k_elements__C1) (a (b c))) c)))
+
+@Concat = ((@ConcatH ((a a) b)) b)
+
+@ConcatH = (a (b (c ((a (d e)) (* e)))))
+  & @Concat ~ (b (c d))
+
+@Length = ((@LengthC (0 a)) a)
+
+@LengthC = (* (a c))
+  & @Length ~ (a b)
+  & $(b c) ~ [+1]
+
+@List.cons = (a (b ((a (b c)) (* c))))
+
+@List.nil = (* (a a))
+
+@Main__C0 = p
+  & @List.cons ~ (10 (o p))
+  & @List.cons ~ (11 (n o))
+  & @List.cons ~ (12 (m n))
+  & @List.cons ~ (13 (l m))
+  & @List.cons ~ (14 (k l))
+  & @List.cons ~ (15 (j k))
+  & @List.cons ~ (16 (i j))
+  & @List.cons ~ (17 (h i))
+  & @List.cons ~ (18 (g h))
+  & @List.cons ~ (19 (f g))
+  & @List.cons ~ (20 (e f))
+  & @List.cons ~ (21 (d e))
+  & @List.cons ~ (22 (c d))
+  & @List.cons ~ (23 (b c))
+  & @List.cons ~ (24 (a b))
+  & @List.cons ~ (25 (@List.nil a))
+
+@Main__C1 = j
+  & @Combine_k_elements ~ (i (1 j))
+  & @List.cons ~ (1 (h i))
+  & @List.cons ~ (2 (g h))
+  & @List.cons ~ (3 (f g))
+  & @List.cons ~ (4 (e f))
+  & @List.cons ~ (5 (d e))
+  & @List.cons ~ (6 (c d))
+  & @List.cons ~ (7 (b c))
+  & @List.cons ~ (8 (a b))
+  & @List.cons ~ (9 (@Main__C0 a))
+
+@Map = ((@MapH ((* (* (a a))) b)) b)
+
+@MapH = (a (c ({(a b) d} ((b (e f)) (* f)))))
+  & @Map ~ (c (d e))
+
+@main = a
+  & @Length ~ (@Main__C1 a)
