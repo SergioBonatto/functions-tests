@@ -38,31 +38,35 @@ def split(p, s, xs, min, max):
 
 # Moves element to its partition
 def place(p, s, b, x, xs, min, max):
-  if b:
-    return split(p, s, xs, List/Cons(x, min), max)
-  else:
-    return split(p, s, xs, min, List/Cons(x, max))
+  switch b:
+    case 0:
+      return split(p, s, xs, min, List/Cons(x, max))
+    case _:
+      return split(p, s, xs, List/Cons(x, min), max)
 
 # Generates a random list
 def rnd(n):
-  if n == 0:
-    return List/Nil
-  else:
-    return List/Cons(random(10000 - n), rnd(n - 1))
+  switch n == 0:
+    case 0:
+      return List/Cons(random(10000 - n), rnd(n - 1))
+    case _:
+      return List/Nil
 
 # Generates a random number
 def random(n):
   switch n == 0:
     case 0:
-      return 0
+      return (random(n - 1) * 1664525 + 101387) % (2 ** 10 ) #4294967296
     case _:
-      return (random(n - 1) * 16 + 101387) % 429453
+      return 0
 
 # The initial pivot
 pivot = (2 ** 23)
 
+
+
 def main():
-  return (qsort(pivot, pivot, rnd(1000)))
+  return sum(qsort(pivot, pivot, rnd(1000)))
   # return (rnd(1000))
 
 # sum qsort 1000 pivo 214748  = 417255
