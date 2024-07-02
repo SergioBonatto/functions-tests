@@ -1,12 +1,12 @@
-# def foo(n):
-#   switch n:
-#     case 0:
-#       return 3
-#     case _:
-#       return foo(n-1) + foo(n-1)
-#
-# def main:
-#   return foo(5)
+def foo(n):
+  switch n:
+    case 0:
+      return 1
+    case _:
+      return foo(n-1) + foo(n-1)
+
+def main:
+  return foo(10)
 
 
 # #flavor core

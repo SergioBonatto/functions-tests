@@ -10,13 +10,18 @@
 #   return test(4)
 
 
-def main():
-  bend x = 1:
-    when x == 0:
-      return 0
-    else:
-      bend *:
-        when x == 1:
-          return 1
-        else:
-          return 2
+# def main():
+#   bend x = 1:
+#     when x == 0:
+#       return 0
+#     else:
+#       bend *:
+#         when x == 1:
+#           return 1
+#         else:
+#           return 2
+
+
+
+def main(x, y):
+  return x + y

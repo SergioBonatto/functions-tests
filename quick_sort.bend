@@ -66,7 +66,7 @@ pivot = (2 ** 23)
 
 
 def main():
-  return sum(qsort(pivot, pivot, rnd(1000)))
+  return sum(qsort(pivot, pivot, rnd(4096)))
   # return (rnd(1000))
 
 # sum qsort 1000 pivo 214748  = 417255

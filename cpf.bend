@@ -130,9 +130,9 @@ def main():
   # return map(char_to_int, to_list(list))
   # return is_digit('-')
   # return mod(sum_list(fst_digit_validator(nine_numbers(to_list(list), 9), 10)))
-  # return validate_cpf(list)
+  return validate_cpf(list)
   # return take(5, to_list(cpf))
-  return calculate_second_digit(to_list(list))
+  # return calculate_second_digit(to_list(list))
 
 
 # [49, 50, 51, 52, 53]
